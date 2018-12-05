@@ -55,18 +55,21 @@ $(document).ready(function() {
         }}
         
         var totalScore = q1Score(q1Result) + q2Score(q2Result) + q3Score(q3Result) + q4Score(q4Result);
-        
-        function SpiritAnimal(totalScore){
-            if (totalScore >= 13){
+
+        function SpiritAnimal(x){
+            if (x >= 13){
                 return "Bear";
-            } else if (13 > totalScore >= 10){
+            } else if (13 > x && x >= 10){
                 return "Snake";
-            } else if (10 > totalScore >= 7){
+            } else if (10 > x && x >= 7){
                 return "Dog";
-            } else if (7 > totalScore >= 4){
+            } else if (7 > x && x >= 4){
                 return "Penguin";
-        }}
+            } else {
+                return "Not All Questions Were Answered";
+            }
+        }
         
-        $(".result").html("Congrats " + name + " " + totalScore);
+        $(".result").html("Congrats " + name + " " + SpiritAnimal(totalScore));
     });
 });
